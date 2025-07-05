@@ -1,4 +1,213 @@
 <!DOCTYPE html>
 <html>
-    <h1>English Learning Website</h1>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>英語學習網-節慶文化</title>
+	<!--Bootstrap 核心CSS檔案-->
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<!-- jQuery -->
+	<link rel="stylesheet" href="assets/form.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!--Bootstrap 核心JavaScript檔案-->
+	<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			$("#list-settings-list").click(function (e) {
+				e.preventDefault();
+				var pageUrl = $(this).attr("data-url");
+				$("#yourIframeId").attr("src", pageUrl);
+			});
+		});
+		function user() {
+			document.getElementById('user').innerHTML = "五年" + localStorage.getItem('class') + "班 " + localStorage.getItem('number') + "號 " + localStorage.getItem('name');
+		}
+		var time = 0;
+		var sec = 0, clear = 0, sec2 = 0, timerid;
+		function start() {
+			if (clear == 0) {
+				sec2 = 0;
+				var ref = document.getElementById('cnt1');
+				window.setInterval((() => { sec2++; ref.innerHTML = sec2; }), 1000);
+				sec = 0;
+				//timerid=window.setInterval(changestyle, 1000);
+				timerid = window.setInterval(show, 1000);
+				window.setInterval(changestyle, 1000);
+				localStorage.setItem('cnt1', sec2);
+			}
+		}
+
+		function clearauto() {
+			clear = 1;
+			clearInterval(timerid);
+		}
+		function changeIframeSrc(src) {
+			document.getElementById('easter').src = src;
+			document.getElementById('thanksgiving').src = src;
+			document.getElementById('halloween').src = src;
+			document.getElementById('christmas').src = src;
+		}
+	</script>
+	<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Andika">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+TC">
+	<style>
+		body {
+		  font-family: 'Andika','',serif;
+		  background-color: rgb(255, 250, 224);
+		  
+		}
+		.btn-custom-size {
+			width: 370px; /* Set your desired width */
+			height: 100px; /* Set your desired height */
+			}
+
+	  </style>
+</head>
+<body onload="user();start();">
+	<center>
+		<!--<span id="time"></span><span id='cnt1'></span>秒-->
+		<div class="container-fluid">
+			<div class="col-12 col-md-12 col-sm-12">
+				<h3 style="font-size:xx-large;color:rgb(20, 75, 109);font-weight: bolder;font-family:Noto Sans TC;border:1ch">從故事學西洋節慶文化<br></h3><h5>U10809003 英語教學五 劉永芬</h5>
+			</div>
+			<span id='user'
+				style="text-align: left;font-weight:bold; color:blue;font-size:'10'; font-family:Arial, Helvetica, sans-serif"><b></b></span><br>
+			<!--<button type="button" class="btn btn-outline-primary" onclick="window.location='login.html';">回上一頁</button><br>-->
+			<div class="row">
+				<!-- Default dropend button -->
+				<!--Menu-->
+				<div class="col-2 col-md-2 col-sm-2">
+					<!--Easter-->
+					<div class="btn-group dropend">
+						<button type="button" class="btn btn-custom-size btn-outline-lightYellow dropdown-toggle"
+							style="border: 15px;font-size:x-large;font-weight: bold;" data-bs-toggle="dropdown"
+							aria-expanded="false">
+							<img src="images/easter.png" alt="Easter" width="80" height="80">Easter 復活節
+						</button>
+						<ul class="dropdown-menu">
+							<button type="button" class="btn btn-outline-dark"
+								onclick="changeIframeSrc('story/Easter-story.html')"
+								style="border: 15px;font-size:large;font-weight: bold;">Story 故事</button><br>
+							<button type="button" class="btn btn-outline-dark"
+								onclick="changeIframeSrc('practice/Easter-practice.html')"
+								style="border: 15px;font-size:large;font-weight: bold;">Practice 練習</button><br>
+							<button type="button" class="btn btn-outline-dark"
+								onclick="changeIframeSrc('game/Easter-game.html')"
+								style="border: 15px;font-size:large;font-weight: bold;">Game 遊戲</button><br>
+							<button type="button" class="btn btn-outline-dark"
+								onclick="changeIframeSrc('test/Easter-test.html')"
+								style="border: 15px;font-size:large;font-weight: bold;">Test 測驗</button><br>
+							<button type="button" class="btn btn-outline-dark"
+								onclick="changeIframeSrc('extra/Easter-extra.html')"
+								style="border: 15px;font-size:large;font-weight: bold;">Extended Learning 延伸學習</button><br>
+							
+						</ul>
+					</div>
+					<hr style="visibility: hidden;">
+					<!--Halloween-->
+					<div class="btn-group dropend">
+						<button type="button" class="btn btn-custom-size btn-outline-lightRed dropdown-toggle"
+							style="border: 15px;font-size:x-large;font-weight: bold;" data-bs-toggle="dropdown"
+							aria-expanded="false">
+							<img src="images/halloween.png" alt="Halloween" width="80" height="80">Halloween 萬聖節
+						</button>
+						<ul class="dropdown-menu">
+							<button type="button" class="btn btn-outline-dark"
+								onclick="changeIframeSrc('story/Halloween-story.html')"
+								style="border: 15px;font-size:large;font-weight: bold;">Story 故事</button><br>
+							<button type="button" class="btn btn-outline-dark"
+								onclick="changeIframeSrc('practice/Halloween-practice.html')"
+								style="border: 15px;font-size:large;font-weight: bold;">Practice 練習</button><br>
+							<button type="button" class="btn btn-outline-dark"
+								onclick="changeIframeSrc('game/Halloween-game.html')"
+								style="border: 15px;font-size:large;font-weight: bold;">Game 遊戲</button><br>
+							<button type="button" class="btn btn-outline-dark"
+								onclick="changeIframeSrc('test/Halloween-test.html')"
+								style="border: 15px;font-size:large;font-weight: bold;">Test 測驗</button><br>
+							<button type="button" class="btn btn-outline-dark"
+								onclick="changeIframeSrc('extra/Halloween-extra.html')"
+								style="border: 15px;font-size:large;font-weight: bold;">Extended Learning 延伸學習</button><br>
+						</ul>
+					</div>
+					<hr style="visibility: hidden;">
+					<!--Thanksgiving-->
+					<div class="btn-group dropend">
+						<button type="button" class="btn btn-custom-size btn-outline-lightBlue dropdown-toggle"
+							style="border: 15px;font-size:x-large;font-weight: bold;" data-bs-toggle="dropdown"
+							aria-expanded="false">
+							<img src="images/thanksgiving.png" alt="Thanksgiving" width="80" height="80">Thanksgiving
+							感恩節
+						</button>
+						<ul class="dropdown-menu">
+							<button type="button" class="btn btn-outline-dark"
+								onclick="changeIframeSrc('story/Thanksgiving-story.html')"
+								style="border: 15px;font-size:large;font-weight: bold;">Story 故事</button><br>
+							<button type="button" class="btn btn-outline-dark"
+								onclick="changeIframeSrc('practice/Thanksgiving-practice.html')"
+								style="border: 15px;font-size:large;font-weight: bold;">Practice 練習</button><br>
+							<button type="button" class="btn btn-outline-dark"
+								onclick="changeIframeSrc('game/Thanksgiving-game.html')"
+								style="border: 15px;font-size:large;font-weight: bold;">Game 遊戲</button><br>
+							<button type="button" class="btn btn-outline-dark"
+								onclick="changeIframeSrc('test/Thanksgiving-test.html')"
+								style="border: 15px;font-size:large;font-weight: bold;">Test 測驗</button><br>
+							<button type="button" class="btn btn-outline-dark"
+								onclick="changeIframeSrc('extra/Thanksgiving-extra.html')"
+								style="border: 15px;font-size:large;font-weight: bold;">Extended Learning 延伸學習</button><br>
+						</ul>
+					</div>
+					<hr style="visibility: hidden;">
+					<!--Christmas-->
+					<div class="btn-group dropend">
+						<button type="button" class="btn btn-custom-size btn-outline-lightGreen dropdown-toggle"
+							style="border: 15px;font-size:x-large;font-weight: bold;" data-bs-toggle="dropdown"
+							aria-expanded="false">
+							<img src="images/christmas.png" alt="Christmas" width="80" height="80">Christmas 聖誕節
+						</button>
+						<ul class="dropdown-menu">
+							<button type="button" class="btn btn-outline-dark"
+								onclick="changeIframeSrc('story/Christmas-story.html')"
+								style="border: 15px;font-size:large;font-weight: bold;">Story 故事</button><br>
+							<button type="button" class="btn btn-outline-dark"
+								onclick="changeIframeSrc('practice/Christmas-practice.html')"
+								style="border: 15px;font-size:large;font-weight: bold;">Practice 練習</button><br>
+							<button type="button" class="btn btn-outline-dark"
+								onclick="changeIframeSrc('game/Christmas-game.html')"
+								style="border: 15px;font-size:large;font-weight: bold;">Game 遊戲</button><br>
+							<button type="button" class="btn btn-outline-dark"
+								onclick="changeIframeSrc('test/Christmas-test.html')"
+								style="border: 15px;font-size:large;font-weight: bold;">Test 測驗</button><br>
+							<button type="button" class="btn btn-outline-dark"
+								onclick="changeIframeSrc('extra/Christmas-extra.html')"
+								style="border: 15px;font-size:large;font-weight: bold;">Extended Learning 延伸學習</button><br>
+						</ul>
+					</div>
+						<hr style="visibility: hidden;">
+						<button type="button"  onclick="changeIframeSrc('learningRecord.html')" class="btn btn-custom-size btn-outline-lightOrange"
+						style="font-size:large;font-weight: bold" aria-expanded="false"><img src="images/learning_record.png" alt="Learning record" width="80" height="80"> Learning Record 學習歷程</button>
+						<hr style="visibility: hidden;">
+					<button type="button"  onclick="changeIframeSrc('reference.html')" class="btn btn-custom-size btn-outline-dark"
+					style="font-size:x-large;font-weight: bold" aria-expanded="false"> Reference 參考資料</button>
+				</div>
+				<div class="offset-1 col-9 col-sm-9 col-md-9">
+					<div class="alert alert-danger alert-dismissible fade show" role="alert">
+						<font style="font-family:Noto Sans TC;font-size:large"><b>請先點擊左側的節慶進行學習！</font></b>
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					  </div>
+					<iframe id="easter" width="100%" height="150%" frameborder="0"
+						title="Easter Page"></iframe>	
+				</div>
+				
+			</div>
+	</center>
+	
+	</div>
+	</nav>
+	
+</body>
+
 </html>
