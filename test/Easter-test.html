@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>hw_test</title>
+   <!--Bootstrap 核心CSS檔案-->
+   <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+   <!-- jQuery -->
+   <link rel="stylesheet" href="../assets/form.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <!--Bootstrap 核心JavaScript檔案-->
+   <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+
+var grade = 0;
+var isBlue = true;
+var totalScore = 0; // 用來存儲總分的變數
+
+
+function changestyle(){
+    var s1 = document.getElementById('p1');
+    if (isBlue) {
+        s1.style.color = "white";
+        s1.style.fontFamily = "Optima";
+        s1.style.fontWeight = "bold";
+        s1.style.backgroundColor = "#D73936";
+    } else {
+        s1.style.color = "white";
+        s1.style.fontFamily = "Optima";
+        s1.style.fontStyle = "sans-serif";
+        s1.style.fontWeight = "bold";
+        s1.style.backgroundColor = "#3C3921";
+    }
+    isBlue = !isBlue; // 切換 isBlue 的值
+}
+//1.單選
+function showRadio(){
+    event.preventDefault();
+    var button = document.getElementById('Submit1');
+    var score = 0;
+    var question1 = document.getElementsByName('date');
+    var show = document.getElementById('show');
+    var grade = document.getElementById('grade');
+    var feedback = "";
+    var ans = [0,0,1];
+    for (var i=0;i<=question1.length-1;i++){
+        if (question1[i].checked){ 
+            feedback += question1[i].value;
+            show.innerHTML="You choose: "+feedback+"<br>";
+            if(ans[i]==1){
+                score += 5;
+                show.innerHTML+="<b>Correct! You get "+score+"/5"+"points.</b>";
+                totalScore+=score;
+                FinalScore(true);
+            }
+            else{
+                show.innerHTML+="<b>Incorrect. You get "+score+"/5"+"points.</b>";
+                FinalScore(false);
+            }
+        }
+    }
+    button.disabled = true;
+}
+//2.複選1
+function showCheckBox1(event){
+    event.preventDefault();
+    var button = document.getElementById('Submit2');
+    var score = 0;
+    var question2 = document.getElementsByName('celebration');
+    var show2 = document.getElementById('show2');
+    var grade2 = document.getElementById('grade2');
+    var feedback = [];
+    var ans = [1,1,0,0];
+    for (var i=0;i<=question2.length-1;i++){
+        if (question2[i].checked){ 
+            feedback.push(question2[i].value);
+            if(ans[i]==1){
+                score += 5;
+                show2.innerHTML="<b>Correct! You get "+score+" /10 points.</b><br>";
+                totalScore+=score;
+                FinalScore(true);
+            }
+            else{
+                show2.innerHTML="<b>Incorrect.You get "+score+" /10 points.</b><br>";
+                FinalScore(false);
+            }
+        }
+    }
+    show2.innerHTML+="You choose: "+feedback.join(" & ")+"<br>";
+    button.disabled = true;
+}
+
+//3.複選2
+function showCheckBox2(event){
+    event.preventDefault();
+    var button = document.getElementById('Submit3');
+    var score = 0;
+    var question3 = document.getElementsByName('icon');
+    var show3 = document.getElementById('show3');
+    var grade3 = document.getElementById('grade3');
+    var feedback = [];
+    var ans = [1,0,0,0];
+    for (var i=0;i<=question3.length-1;i++){
+        if (question3[i].checked){ 
+            feedback.push(question3[i].value);
+            if(ans[i]==1){
+                score += 5;
+                show3.innerHTML="<b>Correct!</b><br>";
+                totalScore+=score;
+                FinalScore(true);
+            }
+            else{
+                show3.innerHTML="<b>Incorrect.</b><br>";
+                FinalScore(false);
+            }
+        }
+    }
+    show3.innerHTML+="You choose: "+feedback.join(" & ")+"<br>";
+    show3.innerHTML+="<b>You get "+score+" /5 points.</b>";
+    button.disabled = true;
+}
+//4.
+function showList1(event){
+    event.preventDefault();
+    var button = document.getElementById('Submit4');
+    var score = 0;
+    var list1 = document.getElementById('list1');
+    var show4 = document.getElementById('show4');
+    var grade = document.getElementById('grade4');
+    var feedback = "";
+    var ans = 0;
+    for (var i=0;i<list1.options.length;i++){
+        if(list1.options[i].selected){
+            feedback += list1.options[i].value;
+            if(i == ans){
+                score += 5;
+                show4.innerHTML="<b>Correct!</b><br>";
+                totalScore+=score;
+                updateScoreDisplay();
+                FinalScore(true);
+            }
+            else{
+                show4.innerHTML="<b>Incorrect.</b><br>";
+                FinalScore(false);
+            }
+        }
+    }
+    show4.innerHTML+="You choose: "+feedback+"<br>";
+    show4.innerHTML+="<b>You get "+score+"/5 points.</b>";
+    button.disabled = true;
+}
+
+//5
+function showList2(event){
+    event.preventDefault();
+    var button = document.getElementById('Submit5');
+    var score = 0;
+    var list2 = document.getElementById('list2');
+    var show5 = document.getElementById('show5');
+    var grade5 = document.getElementById('grade5');
+    var feedback = "";
+    var ans = 0;
+    for (var i=0;i<list2.options.length;i++){
+        if(list2.options[i].selected){
+            feedback += list2.options[i].value;
+            if(i == ans){
+                score += 5;
+                show5.innerHTML="<b>Correct!</b><br>";
+                totalScore+=score;
+                updateScoreDisplay();
+                FinalScore(true);
+            }
+            else{
+                show5.innerHTML="<b>Incorrect.</b><br>";
+                FinalScore(false);
+            }
+        }
+    }
+    show5.innerHTML+="You choose: "+feedback+"<br>";
+    show5.innerHTML+="<b>You get "+score+" /5 points.</b>";
+    button.disabled = true;
+}
+
+//6.
+function showList3(event){
+    event.preventDefault();
+    var button = document.getElementById('Submit6');
+    var score = 0;
+    var list3 = document.getElementById('list3');
+    var show6 = document.getElementById('show6');
+    var grade6 = document.getElementById('grade6');
+    var feedback = [];
+    var ans = [1,1,0,0];
+    for (var i=0;i<list3.options.length;i++){
+        if (list3.options[i].selected){ 
+            feedback.push(list3.options[i].value);
+            if(list3.options[i].selected==ans[i]){
+                score += 5;
+                show6.innerHTML="<b>Correct!</b><br>";
+                totalScore+=score;
+                updateScoreDisplay();
+                FinalScore(true);
+            }
+            else{
+                show6.innerHTML="<b>Incorrect.</b><br>";
+                FinalScore(false);
+            }
+        }
+    }
+    show6.innerHTML+="You choose: "+feedback.join(" & ");
+    grade6.innerHTML+="<b>You get "+score+"/"+10+" points.</b>";
+    button.disabled = true;
+}
+
+//7
+var totalScore = 0; // 全局變數來存儲總分
+
+function showList4(event){
+    event.preventDefault();
+    var button = document.getElementById('Submit7');
+    var score = 0;
+    var list4 = document.getElementById('list4');
+    var show7 = document.getElementById('show7');
+    var grade7 = document.getElementById('grade7'); 
+    var feedback = [];
+    var ans = [0,1,1,1];
+    for (var i=0;i<list4.options.length;i++){
+        if (list4.options[i].selected){ 
+            feedback.push(list4.options[i].value);
+            if(list4.options[i].selected==ans[i]){
+                score += 5;
+                show7.innerHTML="<b>Correct!</b><br>";
+                totalScore+=score;
+                updateScoreDisplay();
+                FinalScore(true);
+            }
+            else{
+                show7.innerHTML="<b>Incorrect.</b><br>";
+                FinalScore(false);
+            }
+        }
+    }
+    show7.innerHTML+="You choose: "+feedback.join(" & ")+"<br>";
+    grade7.innerHTML+="<b>You get "+score+"/"+15+" points.</b>";
+    button.disabled = true;
+}
+
+function FinalScore(correct) {
+    totoalScore = document.getElementById('score').innerHTML;
+
+}
+var time = 0;
+    var sec=0, clear=0, sec2=0, timerid;
+    var sec2 = 0;
+    var timerid;
+
+    function start(){
+        if (!timerid){ // 檢查計時器是否已經啟動
+            sec2 = 0;
+            var ref = document.getElementById('time_EasterTest');
+            timerid = window.setInterval(() => {
+                sec2++;
+                ref.innerHTML = sec2;
+                localStorage.setItem('time_EasterTest', sec2);
+            }, 1000);
+        }
+    }
+
+    function clearauto(){
+        clear=1;
+        clearInterval(timerid);
+    }
+function updateScoreDisplay() {
+    var scoreElement = document.getElementById('score');
+    scoreElement.innerHTML = "<b>分數：" + totalScore + "</b>";
+}
+
+function FinalScore() {
+    var score = correct ? 5 : 0; // 如果答案正確，得5分，否則得0分
+    totalScore += score; // 將分數加到總分上
+    updateScoreDisplay(); // 更新顯示分數
+}
+
+
+</script>
+</head>
+<body onload="start()">
+    <p id='p1'><font size="5">Welcome to Easter Challenge!</font></p><span id='time_EasterTest'></span>秒
+    <!--單選-->
+    <ul>
+        <li><font style="font-weight:bold; font-size:8; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Single-Choice 單選題</font></li>
+            <p><h3>1. What season is Easter in?</h3></p>
+            <form name="form1" id="form1">
+                <input type="radio" name="date" value="Winter">Winter
+                <input type="radio" name="date" value="Fall">Fall
+                <input type="radio" name="date" value="Spring">Spring
+                <button type=button class="btn btn-outline-dark" id="Submit1" onclick="showRadio(event)" value="Submit" >Submit</button>
+            </form>
+            <p id='show'></p>
+            <p id='grade'></p>
+        <!--複選*2 四選項-->  
+        <li><font style="font-weight:bold; font-size:8; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Multiple Choices</font></li>
+        <p><h3>  2. What do people usually do to celebrate Easter?</h3></p>      
+        <form name = "form2" id="form2">
+            <input type="checkbox" name="celebration" value="They paint eggs.">They paint eggs.<br>
+            <input type="checkbox" name="celebration" value="They eat turkies.">They do Easter egg hunt.<br>
+            <input type="checkbox" name="celebration" value="They send Christmas cards to thier family and friends.">They send Christmas cards to thier family and friends.<br>
+            <input type="checkbox" name="celebration" value="They exchange gifts with others.">Kids have gifts from Santa Claus.<br>
+            <p><button type="button" id="Submit2" class="btn btn-outline-dark" onclick="showCheckBox1(event)" value="Submit">Submit</button></p>
+        </form>
+        <p id="show2"></p>
+        <p id='grade2'></p>
+        <p><h3>3.Which pictures are related to(與...有關) Easter?</h3></p>      
+        <form name = "form3" id="form3">
+            <input type="radio" name="icon" value="easter"><img width=150 height=150 src="../images/easter.png" alt="pumpkin">
+            <input type="radio" name="icon" value="Santa Claus"><img width=150 height=150 src="../images/santa-claus.png" alt="Santa Claus">
+            <input type="radio" name="icon" value="Thanksgiving dinner"><img width=150 height=150 src="../images/thanksgiving.png" alt="Easter bunny">
+            <input type="radio" name="icon" value="a reindeer"><img width=150 height=150 src="../images/reindeer.png" alt="reindeer">
+            <button type=button class="btn btn-outline-dark" id="Submit3" onclick="showCheckBox2(event)" value="Submit">Submit</button>
+        </form>
+        <p id="show3"></p>
+        <p id='grade3'></p>
+        <!--下拉式選單1-->
+        <li><font style="font-weight:bold; font-size:8; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">True/False 是非題</font></li>
+        <form name = "form4" id="form4">
+            <h3>4. We do Easter egg hunting on Easter.</h3>
+            <select id="list1">
+                <option value="True">True</option>
+                <option value="False">False</option>
+            </select>
+            <button type=button class="btn btn-outline-dark" id="Submit4" onclick="showList1(event)" value="Submit">Submit</button>
+        </form>
+        <p id="show4"></p>
+        <p id='grade4'></p>
+        <!--下拉式選單2-->
+        <form name = "form5" id="form5">
+            <h3>5.People paint eggs with beautiful colors on Easter.</h3>
+            <select id="list2">
+                <option value="True">True</option>
+                <option value="False">False</option>
+            </select>
+            <button type=button class="btn btn-outline-dark"  id="Submit5" onclick="showList2(event)" value="Submit">Submit</button>
+        </form>
+        <p id="show5"></p>
+        <p id='grade5'></p>
+        <br>
+    <!--多重下拉式選單(複選)1-->
+        <li><font style="font-weight:bold; font-size:8; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Multiple Choices Choose all applies 選擇適合的選項</font></li>
+        <form name = "form6" id="form6">
+        <h3>6. Which of the following are commonly associated with Easter? (Select all that apply)</h3>
+            <select name="list3" id="list3" multiple>
+                <option value="easter egg">Easter egg</option>
+                <option value="Easter chocolate">Easter chocolate</option>
+                <option value="Santa Claus">Santa Claus</option>
+                <option value="Christmas Tree">Christmas Tree</option>
+            </select>
+            <button type=button class="btn btn-outline-dark" id="Submit6" onclick="showList3(event)" value="Submit">Submit</button>
+        </form>
+        <p id="show6"></p>
+        <p id='grade6'></p>
+
+        <form name = "form7" id="form7">
+            <h3>7. Which of the following are not commonly associated with Easter?</h3>
+                <select name="list4" id="list4" multiple>
+                    <option value="Easter chocolate">Easter chocolate</option>
+                    <option value="turkey">turkey</option>
+                    <option value="Santa Claus">Santa Claus</option>
+                    <option value="Christmas Tree">Christmas Tree</option>
+                </select>
+                <button type="button" class="btn btn-outline-dark" id="Submit7" onclick="showList4(event)" value="Submit">Submit</button>
+            </form>
+            <p id="show7"></p>
+            <p id='grade7'></p>
+    
+    </ul>
+    Source
+   <ol type="1">
+    <li><font size="3"><a href="https://www.freepik.com/free-photo/empty-christmas-table-background-with-christmas-tree-out-focus-product-display-montage_20070845.htm#query=Christmas%20background&position=12&from_view=search&track=ais&uuid=2b523f6f-a2dd-4379-83e1-4260fe9db64e">Image by our-team</a> on Freepik</font></li>
+    <li><font size="3"><a href="https://www.flaticon.com/free-icons/santa-claus" title="santa claus icons">Santa claus icons created by dhtgicon - Flaticon</a></font></li>
+    <li><font size="3"><a href="https://2.bp.blogspot.com/-9oBSS70g7Eo/W7WcbfIdafI/AAAAAAABPSU/ov5D2yFQMTIwU3aMY_fdWMrTJHTD7bjnQCLcBGAs/s800/halloween_mark_pumpkin.png">Link to a Halloween pumpkin image</a></font></li>
+    <li><font size="3"><a href="https://www.irasutoya.com/2013/03/blog-post_7703.html">Image of a Easter bunny</a></font></li>
+    <li><font size="3"><a href="https://www.irasutoya.com/2012/10/blog-post_16.html">Image of a Christmas reindeer</a></font></li>
+   </ol>
+
+</body>
+</html>
+        <span id="message" style="font-weight:bold;font-size:'10'; font-family:Arial, Helvetica, sans-serif"><b></b></span><br>
+        <span id="score" style="font-weight:bold; color:blue;font-size:'10'; font-family:Arial, Helvetica, sans-serif"><b>分數：</b></span>/55分<br>
+        <br>
+        <button type=button class="btn btn-outline-dark" onclick="window.location='../game/Easter-game.html';">上一頁 Back</button>
+        <button type=button class="btn btn-outline-dark" onclick="window.location='../extra/Easter-extra.html';">下一頁 Next</button>
+    </body>
+    </html>

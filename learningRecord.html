@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+	<title>英語學習網-節慶文化</title>
+	<!--Bootstrap 核心CSS檔案-->
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<!-- jQuery -->
+	<link rel="stylesheet" href="assets/form.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!--Bootstrap 核心JavaScript檔案-->
+	<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			$("#list-settings-list").click(function (e) {
+				e.preventDefault();
+				var pageUrl = $(this).attr("data-url");
+				$("#yourIframeId").attr("src", pageUrl);
+			});
+		});
+	</script>
+    <script>
+         function getTime(){
+			document.getElementById('time_EasterStory').innerHTML = localStorage.getItem('time_EasterStory');
+			document.getElementById('time_EasterPractice').innerHTML = localStorage.getItem('time_EasterPractice');
+			document.getElementById('time_EasterGame').innerHTML = localStorage.getItem('time_EasterGame');
+			document.getElementById('time_EasterTest').innerHTML = localStorage.getItem('time_EasterTest');
+			document.getElementById('time_EasterExtra').innerHTML = localStorage.getItem('time_EasterExtra');
+			document.getElementById('time_HalloweenStory').innerHTML = localStorage.getItem('time_HalloweenStory');
+			document.getElementById('time_HalloweenPractice').innerHTML = localStorage.getItem('time_HalloweenPractice');
+			document.getElementById('time_HalloweenGame').innerHTML = localStorage.getItem('time_HalloweenGame');
+			document.getElementById('time_HalloweenTest').innerHTML = localStorage.getItem('time_HalloweenTest');
+			document.getElementById('time_HalloweenExtra').innerHTML = localStorage.getItem('time_HalloweenExtra');
+			document.getElementById('time_ThanksgivingStory').innerHTML = localStorage.getItem('time_ThanksgivingStory');
+			document.getElementById('time_ThanksgivingPractice').innerHTML = localStorage.getItem('time_ThanksgivingPractice');
+			document.getElementById('time_ThanksgivingGame').innerHTML = localStorage.getItem('time_ThanksgivingGame');
+			document.getElementById('time_ThanksgivingTest').innerHTML = localStorage.getItem('time_ThanksgivingTest');
+			document.getElementById('time_ThanksgivingExtra').innerHTML = localStorage.getItem('time_ThanksgivingExtra');
+			document.getElementById('time_ChristmasStory').innerHTML = localStorage.getItem('time_ChristmasStory');
+			document.getElementById('time_ChristmasPractice').innerHTML = localStorage.getItem('time_ChristmasPractice');
+			document.getElementById('time_ChristmasGame').innerHTML = localStorage.getItem('time_ChristmasGame');
+			document.getElementById('time_ChristmasTest').innerHTML = localStorage.getItem('time_ChristmasTest');
+			document.getElementById('time_ChristmasExtra').innerHTML = localStorage.getItem('time_ChristmasExtra');
+			document.getElementById('score_EasterPractice').innerHTML = localStorage.getItem('score_EasterPractice');
+			document.getElementById('score_HalloweenPractice').innerHTML = localStorage.getItem('score_HalloweenPractice');
+			document.getElementById('score_ThanksgivingPractice').innerHTML = localStorage.getItem('score_ThanksgivingPractice');
+			document.getElementById('score_ChristmasPractice').innerHTML = localStorage.getItem('score_ChristmasPractice');
+			document.getElementById('score_EasterTest').innerHTML = localStorage.getItem('score_EasterTest');
+			document.getElementById('score_HalloweenTest').innerHTML = localStorage.getItem('score_HalloweenTest');
+			document.getElementById('score_ThanksgivingTest').innerHTML = localStorage.getItem('score_ThanksgivingTest');
+			document.getElementById('score_ChristmasTest').innerHTML = localStorage.getItem('score_ChristmasTest');
+			document.getElementById('score_EasterGame').innerHTML = localStorage.getItem('score_EasterGame');
+			document.getElementById('score_HalloweenGame').innerHTML = localStorage.getItem('score_HalloweenGame');
+			document.getElementById('score_ThanksgivingGame').innerHTML = localStorage.getItem('score_ThanksgivingGame');
+			document.getElementById('score_ChristmasGame').innerHTML = localStorage.getItem('score_ChristmasGame');
+
+		}
+       
+    </script>
+    <body onload="getTime();"><center>
+		<h1>Learning Record 學習歷程 </h1>
+        <br>
+        <div class="">
+            <table class="table table-striped table-hover" style="width:800px">
+                <tr>
+                    <td></td>
+                    <td>時間</td>
+					<td>分數</td>
+                </tr>
+                <tr>
+                    <td>復活節故事</td>
+                    <td><span id='time_EasterStory'></span>秒</td>
+					<td>不適用</td>
+				</tr>
+				<tr>
+                    <td>復活節練習</td>
+                    <td><span id='time_EasterPractice'></span>秒</td>
+					<td><span id='score_EasterPractice'></span>分</td>
+				</tr>
+				<tr>
+                    <td>復活節遊戲</td>
+                    <td><span id='time_EasterGame'></span>秒</td>
+					<td><span id='score_EasterGame'></span>/30分</td>
+				</tr>
+				<tr>
+                    <td>復活節測驗</td>
+                    <td><span id='time_EasterTest'></span>秒</td>
+					<td><span id='score_EasterTest'></span>分</td>
+				</tr>
+				<tr>
+                    <td>復活節延伸學習</td>
+                    <td><span id='time_EasterExtra'></span>秒</td>
+					<td>不適用</td>
+				</tr>
+				<!--Halloween-->
+				<tr>
+                    <td>萬聖節故事</td>
+                    <td><span id='time_HalloweenStory'></span>秒</td>
+					<td>不適用</td>
+				</tr>
+				<tr>
+                    <td>萬聖節練習</td>
+                    <td><span id='time_HalloweenPractice'></span>秒</td>
+					<td><span id='score_HalloweenPractice'></span>分</td>
+				</tr>
+				<tr>
+                    <td>萬聖節遊戲</td>
+                    <td><span id='time_HalloweenGame'></span>秒</td>
+					<td><span id='score_HalloweenGame'></span>/40分</td>
+				</tr>
+				<tr>
+                    <td>萬聖節測驗</td>
+                    <td><span id='time_HalloweenTest'></span>秒</td>
+					<td><span id='score_HalloweenTest'></span>分</td>
+				</tr>
+				<tr>
+                    <td>萬聖節延伸學習</td>
+                    <td><span id='time_HalloweenExtra'></span>秒</td>
+					<td>不適用</td>
+				</tr>
+				<!--Thanksgiving-->
+				<tr>
+                    <td>感恩節故事</td>
+                    <td><span id='time_ThanksgivingStory'></span>秒</td>
+					<td>不適用</td>
+				</tr>
+				<tr>
+                    <td>感恩節練習</td>
+                    <td><span id='time_ThanksgivingPractice'></span>秒</td>
+					<td><span id='score_ThanksgivingPractice'></span>分</td>
+				</tr>
+				<tr>
+                    <td>感恩節遊戲</td>
+                    <td><span id='time_ThanksgivingGame'></span>秒</td>
+					<td><span id='score_ThanksgivingGame'></span>/30分</td>
+				</tr>
+				<tr>
+                    <td>感恩節測驗</td>
+                    <td><span id='time_ThanksgivingTest'></span>秒</td>
+					<td><span id='score_ThanksgivingTest'></span>分</td>
+				</tr>
+				<tr>
+                    <td>感恩節延伸學習</td>
+                    <td><span id='time_ThanksgivingExtra'></span>秒</td>
+					<td>不適用</td>
+				</tr>
+				<!--Christmas-->
+				<tr>
+                    <td>聖誕節故事</td>
+                    <td><span id='time_ChristmasStory'></span>秒</td>
+					<td>不適用</td>
+				</tr>
+				<tr>
+                    <td>聖誕節練習</td>
+                    <td><span id='time_ChristmasPractice'></span>秒</td>
+					<td><span id='score_ChristmasPractice'></span>分</td>
+				</tr>
+				<tr>
+                    <td>聖誕節遊戲</td>
+                    <td><span id='time_ChristmasGame'></span>秒</td>
+					<td><span id='score_ChristmasGame'></span>/30分</td>
+				</tr>
+				<tr>
+                    <td>聖誕節測驗</td>
+                    <td><span id='time_ChristmasTest'></span>秒</td>
+					<td><span id='score_ChristmasTest'></span>分</td>
+				</tr>
+				<tr>
+                    <td>聖誕節延伸學習</td>
+                    <td><span id='time_ChristmasExtra'></span>秒</td>
+					<td>不適用</td>
+				</tr>
+				
+              </table>
+        </div></center>
+        
+        <br>
+
+    </body>
+</html>

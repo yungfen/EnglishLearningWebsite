@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Christmas Story 聖誕節故事</title>
+        <!--Bootstrap 核心CSS檔案-->
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+        <!-- jQuery -->
+        <link rel="stylesheet" href="../assets/form.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!--Bootstrap 核心JavaScript檔案-->
+        <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </head>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Andika|Noto+Sans+TC">
+    <style>
+      body {
+        font-family: 'Andika','',serif;
+      }
+    </style>
+    <script>
+	var time = 0;
+    var sec=0, clear=0, sec2=0, timerid;
+    var sec2 = 0;
+    var timerid;
+
+    function start(){
+        if (!timerid){ // 檢查計時器是否已經啟動
+            sec2 = 0;
+            var ref = document.getElementById('time_ChristmasStory');
+            timerid = window.setInterval(() => {
+                sec2++;
+                ref.innerHTML = sec2;
+                localStorage.setItem('time_ChristmasStory', sec2);
+            }, 1000);
+        }
+    }
+
+    function clearauto(){
+        clear=1;
+        clearInterval(timerid);
+    }
+
+    function clearauto(){
+        clear=1;
+        clearInterval(timerid);
+    }
+    $(document).ready(function(){
+        $("#reindeer").click(function(){
+            document.getElementById('reindeerSound').play();
+            $('[data-toggle="popover"]').popover();
+        });
+        new bootstrap.Popover(document.querySelector('#reindeer'))
+        var audiostop = document.getElementById('ButtonChristmasStoryStop');
+            audiostop.disabled = true;
+        $("#ButtonChristmasStorySlower").click(function(){
+            document.getElementById('ChristmasStorySoundSlower').play();
+            audiostop.disabled = false;
+            ButtonChristmasStorySlow.disabled = true;
+            ButtonChristmasStory.disabled = true;
+        });
+        $("#ButtonChristmasStorySlow").click(function(){
+            document.getElementById('ChristmasStorySoundSlow').play();
+            audiostop.disabled = false;
+            ButtonChristmasStorySlower.disabled = true;
+            ButtonChristmasStory.disabled = true;
+        });
+
+        $("#ButtonChristmasStory").click(function(){
+            document.getElementById('ChristmasStorySound').play();
+            audiostop.disabled = false;
+            ButtonChristmasStorySlower.disabled = true;
+            ButtonChristmasStorySlow.disabled = true;
+        });
+        function stopAllAudio() {
+            var audios = document.getElementsByTagName('audio');
+            for(var i = 0; i < audios.length; i++){
+                audios[i].pause();
+                audios[i].currentTime = 0;
+            }
+            ButtonChristmasStory.disabled = false;
+            ButtonChristmasStorySlow.disabled = false;
+            ButtonChristmasStorySlower.disabled = false;
+        }
+
+        $("#ButtonChristmasStoryStop").click(function(){
+            stopAllAudio();
+        });
+
+        $("#joy").click(function(){
+            document.getElementById('joySound').play();
+            $('[data-toggle="popover"]').popover({
+        trigger: 'focus' // 只有當元素失去焦點時才關閉 popover
+    });
+        });
+        new bootstrap.Popover(document.querySelector('#joy')) 
+        $("#gifts").click(function(){
+            document.getElementById('giftsSound').play();
+            $('[data-toggle="popover"]').popover({
+        trigger: 'focus' // 只有當元素失去焦點時才關閉 popover
+    });
+        });
+        new bootstrap.Popover(document.querySelector('#gifts'))
+        $("#christmasStockings").click(function(){
+            document.getElementById('christmasStockingsSound').play();
+            $('[data-toggle="popover"]').popover({
+        trigger: 'focus' // 只有當元素失去焦點時才關閉 popover
+    });
+        });
+        new bootstrap.Popover(document.querySelector('#christmasStockings'))
+
+        $("#christmasTree").click(function(){
+            document.getElementById('christmasTreeSound').play();
+            $('[data-toggle="popover"]').popover();
+        });
+        new bootstrap.Popover(document.querySelector('#christmasTree'))
+        $("#sleigh").click(function(){
+            document.getElementById('sleighSound').play();
+            $('[data-toggle="popover"]').popover({
+        trigger: 'focus' // 只有當元素失去焦點時才關閉 popover
+    });
+        });
+        new bootstrap.Popover(document.querySelector('#sleigh'))
+    });
+    </script>
+
+<script>
+    function showTranslation(button) {
+        var toggleState = button.getAttribute('data-toggle') === 'true';
+        button.setAttribute('data-toggle', !toggleState);
+        if (!toggleState) {
+            <p>魯道夫</p>
+        } else {
+            // 隱藏中文解釋
+        }
+    }
+    </script>
+<body onload="start();"><center>
+        <h1 class="offset-1">Christmas Story <font style="font-family:'Courier New', Courier, monospace">聖誕節故事</font></h1>
+        <span id="time_ChristmasStory"></span>秒
+        <span id="message" style="font-weight:bold;font-size:'10'; font-family:Arial, Helvetica, sans-serif"><b></b></span><br>
+        <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">說明</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h5>如果遇到不認得的單字</h5>
+                        <p>點選<a href="#" role="button" class="btn popover-test" style="text-size-adjust: 5;text-decoration: underline; color: black;" data-content="Popover body content is set in this attribute.">單字</a> 看中文解釋</p>
+                        <hr>
+                        <h5>如果想看全文的中文：</h5>
+                        <p>點選<a href="#" role="button" class="btn btn-secondary popover-test"  data-content="艾咪對復活節感到興奮。">中文解釋</a> 看中文解釋</p>
+                        <hr>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close 關閉</button>
+                    </div>
+                </div>
+            </div>
+        </div>       
+        <br>
+                <font size=5 style="line-height: 150%;">Every year, in the chilly month of December, there was a special day called Christmas. This day, the 25th of December, was to celebrate the birthday of Jesus.
+                    In a faraway place, there lived a jolly old man named Santa Claus. Santa had a big, round belly and a long, white beard. He lived with his flying 
+                    <button  id="reindeer" type="button" class="btn btn-lg" data-toggle="popover" data-trigger="focus" tabindex="0" style="text-size-adjust: 5;text-decoration: underline; color: black;" data-content="馴鹿" data-placement="top">reindeer</button>. 
+                    Every year, on the night before Christmas, Santa would load up his 
+                    <button  id="sleigh" type="button" class="btn btn-lg" data-toggle="popover" data-trigger="focus" tabindex="0" style="text-size-adjust: 5;text-decoration: underline; color: black;" data-content="雪橇" data-placement="top">sleigh</button>.   
+                    with gifts. 
+                    With a “Ho, ho, ho!” he and his reindeer would fly from house to house, leaving gifts under the 
+                    <button  id="christmasTree" type="button" class="btn btn-lg" data-toggle="popover" data-trigger="focus" tabindex="0" style="text-size-adjust: 5;text-decoration: underline; color: black;" data-content="聖誕樹" data-placement="top">Christmas tree</button>.  
+                    and in children's <button  id="christmasStockings" type="button" class="btn btn-lg" data-toggle="popover" data-trigger="focus" tabindex="0" style="text-size-adjust: 5;text-decoration: underline; color: black;" data-content="聖誕長襪" data-placement="top">Christmas stockings</button> when the children were sleeping.
+                    Christmas is a time for sharing and being with family. It’s a time of 
+                    <button  id="joy" type="button" class="btn btn-lg" data-toggle="popover" data-trigger="focus" tabindex="0" style="text-size-adjust: 5;text-decoration: underline; color: black;" data-content="高興，喜悅" data-placement="top">joy</button> , 
+                    <button  id="gifts" type="button" class="btn btn-lg" data-toggle="popover" data-trigger="focus" tabindex="0" style="text-size-adjust: 5;text-decoration: underline; color: black;" data-content="禮物。gift的複數" data-placement="top">gifts</button>, and love.<br></font>
+                </font>
+                <br>
+            <div><font style="font-size: large;">故事音檔：</font>
+                <button id="ButtonChristmasStorySlower" type="button" class="btn btn-outline-primary">0.65倍速</button>
+                <button id="ButtonChristmasStorySlow" type="button" class="btn btn-outline-primary">0.75倍速</button>
+                <button id="ButtonChristmasStory" type="button" class="btn btn-outline-primary">1倍速</button>
+                <button id="ButtonChristmasStoryStop" type="button" class="btn btn-outline-danger">暫停</button>
+            </div>
+            <audio id="ChristmasStorySound" src="../audio/christmasStory.wav"></audio>
+            <audio id="ChristmasStorySoundSlow" src="../audio/christmasStorySlow.wav"></audio>
+            <audio id="ChristmasStorySoundSlower" src="../audio/christmasStorySlower.wav"></audio>
+            <audio id="reindeerSound" src="../audio/christmasStory/reindeer.wav"></audio>
+            <audio id="joySound" src="../audio/christmasStory/joy.wav"></audio>
+            <audio id="giftsSound" src="../audio/christmasStory/gifts.wav"></audio>
+            <audio id="christmasStockingsSound" src="../audio/christmasStory/christmasStockings.wav"></audio>
+            <audio id="christmasTreeSound" src="../audio/christmasStory/christmasTree.wav"></audio>
+            <audio id="sleighSound" src="../audio/christmasStory/sleigh.wav"></audio>
+            <font size=5>   
+        </div>
+       
+        <div>
+            <br>
+            <p class="d-inline-flex gap-lg-2">
+                <button class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                  中文解釋
+                </button>
+              </p>
+              <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+                    每年，在一個寒冷的十二月，有一個特別的日子叫做聖誕節。這一天，十二月二十五日，被選為慶祝耶穌的生日。
+
+在一個遙遠的地方，住著一位名叫的快樂的老人。聖誕老人有一個大大的、圓圓的肚子和一條長長的、白白的鬍子。他和會飛的馴鹿一起生活！
+
+每年在聖誕節的前一夜，聖誕老人會把他的雪橇裝滿禮物。他和他的馴鹿會一邊說著“噢，噢，噢！”一邊從一棟房子飛到另一棟房子，趁孩子們熟睡的時候在聖誕樹下和他們的聖誕襪裡放禮物。
+
+聖誕節是一個分享和與家人在一起的時光。這是一個充滿歡樂、禮物和愛的時刻。
+                    
+                </div></font>
+              </div>
+            <br>
+            <button type=button class="btn btn-outline-dark" onclick="window.location='../practice/Christmas-practice.html';">下一頁 Next</button><br>
+           
+        </div><br>
+        
+        <font size="3">
+            Reference:
+            <a href="https://en.wikipedia.org/wiki/Rudolph_the_Red-Nosed_Reindeer">https://en.wikipedia.org/wiki/Rudolph_the_Red-Nosed_Reindeer</a><br>
+            <a href="https://www.thelearnersnook.com/2020/12/04/rudolph-the-red-nosed-reindeer-story-for-children/">https://www.thelearnersnook.com/2020/12/04/rudolph-the-red-nosed-reindeer-story-for-children/</a>
+        </font></center>
+    </body>
+    </html>

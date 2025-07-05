@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Login</title>
+    </head>
+    <script>
+        function personalData(){
+            var inputClass = document.getElementById('class').value;
+            var inputNumber = document.getElementById('number').value;
+            var inputName = document.getElementById('name').value;
+            if(inputClass != "" | inputNumber != "" | inputName != ""){
+                localStorage.setItem('class', inputClass);
+                localStorage.setItem('number', inputNumber);
+                localStorage.setItem('name', inputName);
+                document.getElementById('submit').innerHTML = "班級：" + inputClass + "，座號：" + inputNumber + "，姓名：" + inputName;
+            }
+            else{
+                document.getElementById('submit').innerHTML="請輸入完整資料";
+            }
+        }
+    </script>
+    <body>
+        <center>
+            <img src="Illustration.jpg" width="600" height="300">
+            <h1 style="font-family: 儷黑 Pro ">歡迎來到英語學習網!</h1>
+            <h3>請輸入班級、座號、姓名：</h3>
+            班級 Class：五年<input type=text id="class" size="5">班<br>
+            座號 Number：<input type=text id="number" size="5"><br>
+            姓名 Name：<input type=text id="name" size="10"><br><br>
+            <font color="blue"><b>先按送出再按下一頁喔！</b></font><br>
+            <button onclick="personalData();">送出 Submit</button>&nbsp;<span id="submit"></span><br>
+            <button onclick="window.location='U10809003.html';">下一頁 Next</button><br>
+            source:
+            <a href="https://www.freepik.com/free-vector/happy-people-celebrate-party-corporate-fun-holiday_22393762.htm#query=festivals%20celebration&position=21&from_view=search&track=ais&uuid=3ce2e394-68f2-4d41-a156-74745cd6a647">Image by upklyak</a> on Freepik
+        </center>
+    </body>
+    
+</html>

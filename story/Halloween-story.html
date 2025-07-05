@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Story about Halloween 關於萬聖節的故事</title>
+        <!--Bootstrap 核心CSS檔案-->
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+        <!-- jQuery -->
+        <link rel="stylesheet" href="../assets/form.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!--Bootstrap 核心JavaScript檔案-->
+        <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </head>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Andika|Noto+Sans+TC">
+    <style>
+      body {
+        font-family: 'Andika',serif;
+      }
+    </style>
+    <script>
+	var sec2 = 0;
+var timerid;
+
+function start(){
+    if (!timerid){ // 檢查計時器是否已經啟動
+        sec2 = 0;
+        var ref = document.getElementById('time_HalloweenStory');
+        timerid = window.setInterval(() => {
+            sec2++;
+            ref.innerHTML = sec2;
+            localStorage.setItem('time_HalloweenStory', sec2);
+        }, 1000);
+    }
+}
+
+function clearTimer() {
+    clearInterval(timerid);
+    timerid = null; // 重置計時器 ID
+}
+
+
+    function clearauto(){
+        clear=1;
+        clearInterval(timerid);
+    }
+    $(document).ready(function(){
+        var audiostop = document.getElementById('ButtonHalloweenStoryStop');
+            audiostop.disabled = true;
+        $("#ButtonHalloweenStorySlower").click(function(){
+            var audio = document.getElementById('HalloweenStorySound');
+            audio.playbackRate = 0.5; // 播放速度設為慢速（0.5 倍速）
+            audio.play();
+            audiostop.disabled = false;
+            ButtonHalloweenStorySlow.disabled = true;
+            ButtonHalloweenStory.disabled = true;
+        });
+        $("#ButtonHalloweenStorySlow").click(function(){
+            var audio = document.getElementById('HalloweenStorySound');
+            audio.playbackRate = 0.75; // 播放速度設為稍慢（0.75 倍速）
+            audio.play();
+            audiostop.disabled = false;
+            ButtonHalloweenStorySlower.disabled = true;
+            ButtonHalloweenStory.disabled = true;
+        });
+
+        $("#ButtonHalloweenStory").click(function(){
+            var audio = document.getElementById('HalloweenStorySound');
+            audio.playbackRate = 1.0; // 播放速度設為正常速度
+            audio.play(); 
+            audiostop.disabled = false;
+            ButtonHalloweenStorySlower.disabled = true;
+            ButtonHalloweenStorySlow.disabled = true;
+        });
+        function stopAllAudio() {
+            var audios = document.getElementsByTagName('audio');
+            for(var i = 0; i < audios.length; i++){
+                audios[i].pause();
+                audios[i].currentTime = 0;
+            }
+            ButtonHalloweenStory.disabled = false;
+            ButtonHalloweenStorySlow.disabled = false;
+            ButtonHalloweenStorySlower.disabled = false;
+        }
+
+        $("#ButtonHalloweenStoryStop").click(function(){
+            stopAllAudio();
+        });
+        //vocabulary
+        $("#ghost").click(function(){
+            document.getElementById('ghostSound').play();
+            $('[data-toggle="popover"]').popover({
+        trigger: 'focus' // 只有當元素失去焦點時才關閉 popover
+    });
+        });
+        new bootstrap.Popover(document.querySelector('#ghost')) 
+        $("#witches").click(function(){
+            document.getElementById('witchesSound').play();
+            $('[data-toggle="popover"]').popover({
+        trigger: 'focus' // 只有當元素失去焦點時才關閉 popover
+    });
+        });
+        new bootstrap.Popover(document.querySelector('#witches'))
+        $("#mummies").click(function(){
+            document.getElementById('mummiesSound').play();
+            $('[data-toggle="popover"]').popover({
+        trigger: 'focus' // 只有當元素失去焦點時才關閉 popover
+    });
+        });
+        new bootstrap.Popover(document.querySelector('#mummies'))
+
+        $("#zombies").click(function(){
+            document.getElementById('zombiesSound').play();
+            $('[data-toggle="popover"]').popover({
+        trigger: 'focus' // 只有當元素失去焦點時才關閉 popover
+    });
+        });
+        new bootstrap.Popover(document.querySelector('#zombies'))
+        $("#pumpkins").click(function(){
+            document.getElementById('pumpkinsSound').play();
+            $('[data-toggle="popover"]').popover({
+        trigger: 'focus' // 只有當元素失去焦點時才關閉 popover
+    });
+        });
+        new bootstrap.Popover(document.querySelector('#pumpkins'))
+
+        $("#vampires").click(function(){
+            document.getElementById('vampiresSound').play();
+            $('[data-toggle="popover"]').popover({
+        trigger: 'focus' // 只有當元素失去焦點時才關閉 popover
+    });
+        });
+        new bootstrap.Popover(document.querySelector('#vampires'))
+        $("#treatOrTreating").click(function(){
+            document.getElementById('trickOrTreatingSound').play();
+            $('[data-toggle="popover"]').popover({
+        trigger: 'focus' // 只有當元素失去焦點時才關閉 popover
+    });
+        });
+        new bootstrap.Popover(document.querySelector('#treatOrTreating'))
+        var myModal = document.getElementById('myModal')
+        var myInput = document.getElementById('myInput')
+
+        myModal.addEventListener('shown.bs.modal', function () {
+        myInput.focus()
+        })
+    });
+    $('.popover-dismiss').popover({
+    trigger: 'focus'
+    });
+    $(document).ready(function(){
+    $('#myModal').modal('show');
+    });
+    
+    //code above 
+    </script>
+<body onload="start();"><center>
+        <h1 class="offset-1">Story about Halloween <font style="font-family:'Courier New', Courier, monospace">關於萬聖節的故事</font></h1>
+        <span id="time"></span><span id="time_HalloweenStory"></span>秒
+        <span id="message" style="font-weight:bold;font-size:'10'; font-family:Arial, Helvetica, sans-serif"><b></b></span><br>      
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">說明</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h5>如果遇到不認得的單字</h5>
+                        <p>點選<a href="#" role="button" class="btn popover-test" style="text-size-adjust: 5;text-decoration: underline; color: black;" data-content="Popover body content is set in this attribute.">單字</a> 看中文解釋</p>
+                        <hr>
+                        <h5>如果想看全文的中文：</h5>
+                        <p>點選<a href="#" role="button" class="btn btn-secondary popover-test"  data-content="艾咪對復活節感到興奮。">中文解釋</a> 看中文解釋</p>
+                        <hr>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close 關閉</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+                <font size=5 style="line-height: 150%;">
+                    Tom loves Halloween. 
+                    He
+                    dresses up
+                    as a
+                    <button  id="ghost" type="button" class="btn btn-lg" data-toggle="popover" data-trigger="focus" tabindex="0" style="text-size-adjust: 5;text-decoration: underline; color: black;" data-content="鬼" data-placement="top">ghost</button>
+                    with a white sheet. 
+                    He joins his friends, who are dressed as
+                    <button  id="witches" type="button" class="btn btn-lg" data-toggle="popover" data-trigger="focus" tabindex="0" style="text-size-adjust: 5;text-decoration: underline; color: black;" data-content="witch 女巫" data-placement="top">witches</button>
+                    ,
+                    <button  id="mummies" type="button" class="btn btn-lg" data-toggle="popover" data-trigger="focus" tabindex="0" style="text-size-adjust: 5;text-decoration: underline; color: black;" data-content="mummy 木乃伊" data-placement="top">mummies</button>
+                    ,
+                    <button  id="zombies" type="button" class="btn btn-lg" data-toggle="popover" data-trigger="focus" tabindex="0" style="text-size-adjust: 5;text-decoration: underline; color: black;" data-content="zombie 殭屍" data-placement="top">zombies</button>
+                    ,
+                    <button  id="pumpkins" type="button" class="btn btn-lg" data-toggle="popover" data-trigger="focus" tabindex="0" style="text-size-adjust: 5;text-decoration: underline; color: black;" data-content="pumpkin 南瓜" data-placement="top">pumpkins</button>
+                    , and
+                    <button  id="vampires" type="button" class="btn btn-lg" data-toggle="popover" data-trigger="focus" tabindex="0" style="text-size-adjust: 5;text-decoration: underline; color: black;" data-content="vampire 吸血鬼" data-placement="top">vampires</button>
+                    . 
+                    They go
+                    <button  id="trickOrTreating" type="button" class="btn btn-lg" data-toggle="popover" data-trigger="focus" tabindex="0" style="text-size-adjust: 5;text-decoration: underline; color: black;" data-content="trick-or-treat 不給糖就搗蛋" data-placement="top">trick-or-treating</button>
+                    . They walk around their neighborhood, knocking on doors. 
+                    Each time someone opens, they shout 'Trick or treat!' and receive handfuls of candy. 
+                    They see houses decorated with spooky decorations. 
+                    The night is filled with excitement, laughter, and lots of treats.
+                    <br>
+                </font>
+                <br>
+            <div><font style="font-size: large;">故事音檔：</font>
+                <button id="ButtonHalloweenStorySlower" type="button" class="btn btn-outline-primary">0.5倍速</button>
+                <button id="ButtonHalloweenStorySlow" type="button" class="btn btn-outline-primary">0.75倍速</button>
+                <button id="ButtonHalloweenStory" type="button" class="btn btn-outline-primary">1倍速</button>
+                <button id="ButtonHalloweenStoryStop" type="button" class="btn btn-outline-danger">暫停</button>
+            </div>
+            <audio id="HalloweenStorySound" src="../audio/HalloweenStory.wav"></audio>
+            <audio id="ghostSound" src="../audio/HalloweenStory/ghost.wav"></audio>
+            <audio id="witchesSound" src="../audio/HalloweenStory/witches.wav"></audio>
+            <audio id="mummiesSound" src="../audio/HalloweenStory/mummies.wav"></audio>
+            <audio id="zombiesSound" src="../audio/HalloweenStory/zombies.wav"></audio>
+            <audio id="pumpkinsSound" src="../audio/HalloweenStory/pumpkins.wav"></audio>
+            <audio id="vampiresSound" src="../audio/HalloweenStory/vampires.wav"></audio>
+            <audio id="trickOrTreatingSound" src="../audio/HalloweenStory/trick-or-treating.wav"></audio>
+            <font size=5>   
+        </div>
+       
+        <div>
+            <br>
+            <p class="d-inline-flex gap-lg-2">
+                <button class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                  中文解釋
+                </button>
+              </p>
+              <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+                    湯姆喜歡萬聖節。他用一塊白色的床單裝扮成鬼魂。<br>他和打扮成女巫、海盜和超級英雄的朋友們走遍鄰里，敲打每家的門。<br>每當有人開門，他們就大喊：「不給糖就搗蛋！」並收到一把把糖果。<br>他們看到房子被裝飾成怪異的樣子。<br>這天夜晚充滿了興奮、笑聲和大量的糖果。                    
+                </div>
+              </div>
+            <br>
+            <button type=button class="btn btn-outline-dark" onclick="window.location='../practice/Halloween-practice.html';">下一頁 Next</button><br>
+           
+        </div><br>
+        
+        <font size="3">
+            Reference:
+            <a href="https://en.wikipedia.org/wiki/Rudolph_the_Red-Nosed_Reindeer">https://en.wikipedia.org/wiki/Rudolph_the_Red-Nosed_Reindeer</a><br>
+            <a href="https://www.thelearnersnook.com/2020/12/04/rudolph-the-red-nosed-reindeer-story-for-children/">https://www.thelearnersnook.com/2020/12/04/rudolph-the-red-nosed-reindeer-story-for-children/</a>
+        </font></center>
+    </body>
+    </html>

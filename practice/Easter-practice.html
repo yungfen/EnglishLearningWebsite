@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easter Quiz</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.6.0/css/bootstrap.min.css">
+    <style>
+      .hidden { display: none; }
+    </style>
+</head>
+<body onload="start();">
+
+<div class="container mt-5">
+    <h2 class="mb-4">Easter Quiz</h2>
+    <span id="time_EasterPractice"></span>秒
+    <form id="quizForm">
+        <!-- Question 1: Multiple Choice -->
+        <div class="form-group">
+            <p>1. What is Amy excited for?</p>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="question1" id="q1a" value="0">
+                <label class="form-check-label" for="q1a">Christmas</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="question1" id="q1b" value="1">
+                <label class="form-check-label" for="q1b">Easter</label>
+            </div>
+        </div>
+
+        <!-- Question 2: Fill in the Blanks -->
+        <div class="form-group">
+            <p>2. Amy paints eggs with __________ colors and hides them in her __________.</p>
+            <input type="text" class="form-control" id="question2-part1" placeholder="adjective for colors">
+            <input type="text" class="form-control" id="question2-part2" placeholder="place">
+        </div>
+
+        <!-- Question 3: True or False -->
+        <div class="form-group">
+            <p>3. Amy's friends come over for an egg hunt. (True/False)</p>
+            <select class="form-control" id="question3">
+                <option value="1">True</option>
+                <option value="0">False</option>
+            </select>
+        </div>
+
+        <!-- Question 4: Matching -->
+        <div class="form-group">
+            <p>4. Match the following:</p>
+            <div class="row">
+                <div class="col">
+                    <p>A. Egg hunt</p>
+                </div>
+                <div class="col">
+                    <select class="form-control" id="question4-A">
+                        <option value="0">Under bushes</option>
+                        <option value="1">Behind trees</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 5: Short Answer -->
+        <div class="form-group">
+            <p>5. What do they do after finding an egg?</p>
+            <input type="text" class="form-control" id="question5">
+        </div>
+
+        <button type="button" class="btn btn-primary" onclick="calculateScore()">Submit</button>
+    </form>
+
+    <div class="mt-4 hidden" id="result">
+        <h3>Your Score: <span id="score">0</span>/5</h3>
+    </div>
+</div>
+
+<!-- Bootstrap and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    var time = 0;
+    var sec=0, clear=0, sec2=0, timerid;
+    var sec2 = 0;
+    var timerid;
+
+    function start(){
+        if (!timerid){ // 檢查計時器是否已經啟動
+            sec2 = 0;
+            var ref = document.getElementById('time_EasterPractice');
+            timerid = window.setInterval(() => {
+                sec2++;
+                ref.innerHTML = sec2;
+                localStorage.setItem('time_EasterPractice', sec2);
+            }, 1000);
+        }
+    }
+
+    function clearauto(){
+        clear=1;
+        clearInterval(timerid);
+    }
+function calculateScore() {
+    var score = 0;
+
+    // Question 1
+    var q1Answer = $('input[name="question1"]:checked').val();
+    score += parseInt(q1Answer, 10);
+
+    // Question 2
+    var q2Answer1 = $('#question2-part1').val().toLowerCase();
+    var q2Answer2 = $('#question2-part2').val().toLowerCase();
+    if(q2Answer1 === 'bright' && q2Answer2 === 'garden') score++;
+
+    // Question 3
+    var q3Answer = $('#question3').val();
+    score += parseInt(q3Answer, 10);
+
+    // Question 4
+    var q4AnswerA = $('#question4-A').val();
+    score += parseInt(q4AnswerA, 10);
+
+    // Question 5
+    var q5Answer = $('#question5').val().toLowerCase();
+    if(q5Answer.includes('win') && q5Answer.includes('prize')) score++;
+
+    // Display score
+    $('#score').text(score);
+    $('#result').removeClass('hidden');
+    localStorage.setItem(time_EasterPractice, time);
+    localStorage.setItem('score_EasterPractice', score);
+}
+</script>
+<button type=button class="btn btn-outline-dark" onclick="window.location='../story/Easter-story.html';">上一頁 Back</button><br>
+<button type=button class="btn btn-outline-dark" onclick="window.location='../game/Easter-game.html';">下一頁 Next</button><br>
+
+</body>
+</html>

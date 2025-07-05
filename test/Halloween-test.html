@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Halloween Quiz</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.6.0/css/bootstrap.min.css">
+<style>
+  .hidden { display: none; }
+</style>
+<head>
+    <meta charset="utf-8">
+    <title>Story about Halloween 關於萬聖節的故事</title>
+    <!--Bootstrap 核心CSS檔案-->
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <!-- jQuery -->
+    <link rel="stylesheet" href="../assets/form.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--Bootstrap 核心JavaScript檔案-->
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Andika|Noto+Sans+TC">
+<style>
+  body {
+    font-family: 'Andika',serif;
+  }
+</style>
+<script>
+  var time = 0;
+  var sec=0, clear=0, sec2=0, timerid;
+  var sec2 = 0;
+  var timerid;
+
+  function start(){
+      if (!timerid){ // 檢查計時器是否已經啟動
+          sec2 = 0;
+          var ref = document.getElementById('time_HalloweenTest');
+          timerid = window.setInterval(() => {
+              sec2++;
+              ref.innerHTML = sec2;
+              localStorage.setItem('time_HalloweenTest', sec2);
+          }, 1000);
+      }
+  }
+
+  function clearauto(){
+      clear=1;
+      clearInterval(timerid);
+  }
+
+var speechSynthesis = window.speechSynthesis;
+var utterance = new window.SpeechSynthesisUtterance();
+function speak1(event) {
+      event.preventDefault();
+    	speechSynthesis.cancel();
+
+    	utterance.lang = "en-US";// u.lang = 'zh-TW';
+		  utterance.rate = "1";
+
+		  utterance.text = "vampire";
+		  speechSynthesis.speak(utterance);
+
+    }
+function speak2(event) {
+      event.preventDefault();
+    	speechSynthesis.cancel();
+
+    	utterance.lang = "en-US";// u.lang = 'zh-TW';
+		  utterance.rate = "1";
+
+		  utterance.text = "pumpkin";
+		  speechSynthesis.speak(utterance);
+
+    }
+
+function speak3(event) {
+  event.preventDefault();
+  speechSynthesis.cancel();
+
+  utterance.lang = "en-US";// u.lang = 'zh-TW';
+  utterance.rate = "1";
+
+  utterance.text = "ghost";
+  speechSynthesis.speak(utterance);
+
+}
+
+function speak4(event) {
+  event.preventDefault();
+  speechSynthesis.cancel();
+
+  utterance.lang = "en-US";// u.lang = 'zh-TW';
+  utterance.rate = "1";
+
+  utterance.text = "trick-or-treat";
+  speechSynthesis.speak(utterance);
+
+}
+</script>
+</head>
+<body onload="start();">
+
+<div class="container mt-5">
+  <h2 class="mb-4">Halloween Quiz</h2>
+  <span id="time_HalloweenTest"></span>秒
+  <form id="quizForm">
+    <!-- Multiple Choice Questions -->
+    <div class="form-group">
+      <p>1. What do people do on Halloween?</p>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="question1" id="q1a" value="1">
+        <label class="form-check-label" for="q1a">People wear costumes.</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="question1" id="q1b" value="0">
+        <label class="form-check-label" for="q1b">People paint eggs. </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="question1" id="q1c" value="0">
+        <label class="form-check-label" for="q1c">People have thanksgiving dinner. </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="question1" id="q1d" value="0">
+        <label class="form-check-label" for="q1d">People exchange(交換) gifts. </label>
+      </div>
+    </div>
+
+    <!-- Short Answer Question -->
+
+    <!-- Fill in the Blanks -->
+  
+      <!--<div class="form-group">
+        <p>2.
+        <button class="btn"  onclick="speak1(event);" id='b1' style="font-size:12px;"><img src="../images/speaker.png" width="50" height="50"></button>
+        </p>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="question2" id="q2a" value="1">
+          <label class="form-check-label" for="q2a"><img src="../images/vampire.png" width="100" height="100"></label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="question2" id="q2b" value="0">
+          <label class="form-check-label" for="q2b"><img src="../images/witch.png" width="100" height="100"></label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="question2" id="q2c" value="0">
+          <label class="form-check-label" for="q2c"><img src="../images/pumpkin.png" width="100" height="100"></label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="question2" id="q2d" value="0">
+          <label class="form-check-label" for="q2d"><img src="../images/halloween.png" width="100" height="100"></label>
+        </div>-->
+      <h2>Listen and Write</h2>
+      2.  
+      <div class="form-group">
+        <button class="btn"  onclick="speak2(event);" id='b1' style="font-size:12px;"><img src="../images/speaker.png" width="50" height="50"></button>
+        <input type="text" class="form-control" id="question3">
+      </div>
+      <div class="form-group">
+        3. <button class="btn"  onclick="speak3(event);" id='b1' style="font-size:12px;"><img src="../images/speaker.png" width="50" height="50"></button>
+        <input type="text" class="form-control" id="question4">
+      </div>
+      <div class="form-group">
+        4. <button class="btn"  onclick="speak4(event);" id='b1' style="font-size:12px;"><img src="../images/speaker.png" width="50" height="50"></button>
+          <input type="text" class="form-control" id="question5">
+      </div>
+      <br>
+    <button type="button" class="btn btn-primary" id="submitButton" onclick="calculateScore();/*buttonClear()*/">Submit</button>
+  </form>
+
+  <div class="mt-4 hidden" id="result">
+    <h3>Your Score: <span id="score"></span>/4</h3>
+  </div>
+</div>
+
+<!-- Bootstrap and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+function calculateScore() {
+  var score = 0;
+  // Multiple Choice
+  var q1Answer = $('input[name="question1"]:checked').val();
+  score += parseInt(q1Answer, 10);
+  //var q2Answer = $('input[name="question2"]:checked').val();
+  //score += parseInt(q2Answer, 10);
+  // Fill in the Blanks
+  var answers3 = $('#question3').val().toLowerCase();
+  if(answers3 === 'pumpkin') score++;
+
+  // Vocabulary Question
+  var q4Answer = $('#question4').val().toLowerCase();
+  if(q4Answer === 'ghost') score++;
+
+  var q5Answer = $('#question5').val().toLowerCase();
+  if(q5Answer === 'trick-or-treat') score++;
+  // Display score
+  $('#score').text(score);
+  $('#result').removeClass('hidden');
+  localStorage.setItem('score_HalloweenTest', score);
+}
+/*function buttonClear(){
+  submitButton.disabled = true;
+}*/
+</script>
+<button type=button class="btn btn-outline-dark" onclick="window.location='../game/Halloween-game.html';">上一頁 Back</button>
+<button type=button class="btn btn-outline-dark" onclick="window.location='../extra/Halloween-extra.html';">下一頁 Next</button>
+
+</body>
+</html>
