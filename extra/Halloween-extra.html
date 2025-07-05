@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Halloween Story 萬聖節故事</title>
+        <!--Bootstrap 核心CSS檔案-->
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+        <!-- jQuery -->
+        <link rel="stylesheet" href="assets/form.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!--Bootstrap 核心JavaScript檔案-->
+        <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </head>
+    <script>
+    var time = 0;
+    var sec=0, clear=0, sec2=0, timerid;
+    var sec2 = 0;
+    var timerid;
+
+    function start(){
+        if (!timerid){ // 檢查計時器是否已經啟動
+            sec2 = 0;
+            var ref = document.getElementById('time_HalloweenExtra');
+            timerid = window.setInterval(() => {
+                sec2++;
+                ref.innerHTML = sec2;
+                localStorage.setItem('time_HalloweenExtra', sec2);
+            }, 1000);
+        }
+    }
+
+    function clearauto(){
+        clear=1;
+        clearInterval(timerid);
+    }
+    
+    </script>
+        
+<body onload="start();"><center>
+        <h2>Extended Learning</h2>
+        <span id="time_HalloweenExtra"></span>秒
+        <span id="message" style="font-weight:bold;font-size:'10'; font-family:Arial, Helvetica, sans-serif"><b></b></span><br>
+        <br>
+        <iframe width="1030" height="630" src="https://www.youtube.com/embed/4jxcWlq3CBg?si=z9zOzj7yPtCU6QVk&amp;start=4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </center>
+    </body>
+    </html>

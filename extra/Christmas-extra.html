@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Extended Learning 延伸學習-Song 歌曲</title>
+        <!--Bootstrap 核心CSS檔案-->
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+        <!-- jQuery -->
+        <link rel="stylesheet" href="../assets/form.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!--Bootstrap 核心JavaScript檔案-->
+        <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </head>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Andika|Noto+Sans+TC">
+    <style>
+      body {
+        font-family: 'Andika','',serif;
+      }
+    </style>
+    <script>
+	var time = 0;
+    var sec=0, clear=0, sec2=0, timerid;
+    var sec2 = 0;
+    var timerid;
+
+    function start(){
+        if (!timerid){ // 檢查計時器是否已經啟動
+            sec2 = 0;
+            var ref = document.getElementById('time_ChristmasExtra');
+            timerid = window.setInterval(() => {
+                sec2++;
+                ref.innerHTML = sec2;
+                localStorage.setItem('time_ChristmasExtra', sec2);
+            }, 1000);
+        }
+    }
+
+    function clearauto(){
+        clear=1;
+        clearInterval(timerid);
+    }
+    
+    $(document).ready(function(){
+        $("#reindeer").click(function(){
+            document.getElementById('reindeerSound').play();
+            $('[data-toggle="popover"]').popover();
+        });
+        new bootstrap.Popover(document.querySelector('#reindeer'))
+        var audiostop = document.getElementById('ButtonChristmasStoryStop');
+            audiostop.disabled = true;
+        $("#ButtonChristmasStory").click(function(){
+            document.getElementById('ChristmasStorySound').play();
+            audiostop.disabled = false;
+        });
+        $("#ButtonChristmasStoryStop").click(function(){
+            var audio = document.getElementById('ChristmasStorySound');
+            audio.pause();
+            audio.currentTime = 0;
+        });
+        $("#ridiculed").click(function(){
+            document.getElementById('ridiculedSound').play();
+            $('[data-toggle="popover"]').popover();
+        });
+        new bootstrap.Popover(document.querySelector('#ridiculed')) //ridiculed還沒有音檔
+        $("#admiration").click(function(){
+            document.getElementById('admirationSound').play();
+            $('[data-toggle="popover"]').popover();
+        });
+        new bootstrap.Popover(document.querySelector('#admiration'))
+    });
+    </script>
+
+<script>
+    function showTranslation(button) {
+        var toggleState = button.getAttribute('data-toggle') === 'true';
+        button.setAttribute('data-toggle', !toggleState);
+        if (!toggleState) {
+            <p>魯道夫</p>
+        } else {
+            // 隱藏中文解釋
+        }
+    }
+    </script>
+<body onload="start();"><center>
+        <h1 class="offset-1">Extended Learning <font style="font-family:'Courier New', Courier, monospace"> 延伸學習</font></h1>
+        <span id="time_ChristmasExtra"></span>秒
+        <span id="message" style="font-weight:bold;font-size:'10'; font-family:Arial, Helvetica, sans-serif"><b></b></span><br>
+                <!-- Your iframe here -->
+                <iframe width="800" height="500" src="https://www.youtube.com/embed/u-i3CFN6mnk?start=13" title="Rudolph The Red Nosed Reindeer | Christmas Carol | Carol Song | TOMTOMI Songs for Kids"  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <br>
+                <font size=5>“Rudolph, a red-nose <button  id="reindeer" type="button" class="btn btn-lg" data-toggle="popover" style="text-size-adjust: 5;text-decoration: underline; color: black;" data-content="馴鹿" data-placement="top">reindeer</button>.<br> Had a very shiny nose. <br>And if you ever saw it.<br> You would even say it glows. <br>
+                    All of the other reindeer. <br>Used to laugh and call him names. <br>They never let poor Rudolph. <br>Join in any reindeer games.<br>
+                    Then one foggy Christmas Eve. <br>Santa came to say: “Rudolph with your nose so bright.<br> Won’t you guide my sleigh tonight?”<br>
+                    Then all the reindeer loved him. <br>As they shouted out with glee. <br>Rudolph the red-nose reindeer. <br>You’ll go down in history!”<br></font>
+                </font>
+            <div>故事音檔：<button id="ButtonChristmasStory" type="button" class="btn">0.75倍速</button><button id="ButtonChristmasStoryStop" type="button" class="btn">暫停</button></div>
+            <audio id="ChristmasStorySound" src="../audio/christmasStory/christmasStory.wav"></audio>
+            <audio id="reindeerSound" src="../audio/christmasStory/reindeer.wav"></audio>
+            <audio id="admirationSound" src="../audio/christmasStory/admiration.wav"></audio>
+            <font size=5>   
+        </div>
+       
+        <div>
+            <p class="d-inline-flex gap-1">
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                  中文解釋
+                </button>
+              </p>
+              <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+                    「魯道夫，一隻紅鼻子的馴鹿。<br>
+                    他鼻子非常亮。<br>
+                    如果你曾經看過它。<br>
+                    你甚至會說它發光。<br>
+                    其他所有的馴鹿。<br>
+                    都嘲笑他。<br>
+                    他們從不讓可憐的魯道夫。<br>
+                    參加任何馴鹿的遊戲。<br>
+                    然後在一個霧濛濛的聖誕前夕。<br>
+                    聖誕老人說：『魯道夫，你的鼻子如此明亮。<br>
+                    你今晚願意引導我的雪橇嗎？』<br>
+                    然後所有的馴鹿都很喜歡他。<br>
+                    當他們高興地大喊出來。<br>
+                    魯道夫，紅鼻子的馴鹿。<br>
+                    你將在歷史上留名！」<br>
+                    
+                </div>
+              </div>
+            <br>
+           
+        </div><br>
+        
+        <font size="3">
+            Reference:
+            <a href="https://en.wikipedia.org/wiki/Rudolph_the_Red-Nosed_Reindeer">https://en.wikipedia.org/wiki/Rudolph_the_Red-Nosed_Reindeer</a><br>
+            <a href="https://www.thelearnersnook.com/2020/12/04/rudolph-the-red-nosed-reindeer-story-for-children/">https://www.thelearnersnook.com/2020/12/04/rudolph-the-red-nosed-reindeer-story-for-children/</a>
+        </font></center>
+    </body>
+    </html>
