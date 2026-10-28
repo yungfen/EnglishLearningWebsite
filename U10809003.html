@@ -23,9 +23,15 @@
 			});
 		});
 		function user() {
-			document.getElementById('user').innerHTML = "五年" + localStorage.getItem('class') + "班 " + localStorage.getItem('number') + "號 " + localStorage.getItem('name');
+		if (!localStorage.getItem('class') || !localStorage.getItem('number') || !localStorage.getItem('name')) {
+			alert("請輸入完整班級、座號、姓名。Please fill in all the blanks.");
+			window.location = 'index.html';
+			return;
 		}
-		var time = 0;
+		document.getElementById('user').innerHTML = "五年" + localStorage.getItem('class') + "班 " + localStorage.getItem('number') + "號 " + localStorage.getItem('name');
+	}
+
+			var time = 0;
 		var sec = 0, clear = 0, sec2 = 0, timerid;
 		function start() {
 			if (clear == 0) {

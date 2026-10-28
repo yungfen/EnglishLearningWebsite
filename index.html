@@ -6,10 +6,10 @@
     </head>
     <script>
         function personalData(){
-            var inputClass = document.getElementById('class').value;
-            var inputNumber = document.getElementById('number').value;
-            var inputName = document.getElementById('name').value;
-            if(inputClass != "" | inputNumber != "" | inputName != ""){
+            var inputClass = document.getElementById('class').value.trim();
+            var inputNumber = document.getElementById('number').value.trim();
+            var inputName = document.getElementById('name').value.trim();
+            if(inputClass != "" && inputNumber != "" && inputName != ""){
                 localStorage.setItem('class', inputClass);
                 localStorage.setItem('number', inputNumber);
                 localStorage.setItem('name', inputName);
