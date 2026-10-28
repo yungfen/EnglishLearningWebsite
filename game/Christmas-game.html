@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>memoryGame</title>
+    </head>
+        <script>
+        function user(){
+            document.getElementById('user').innerHTML = "五年"+localStorage.getItem('class') + "班 "+localStorage.getItem('number') + "號 " + localStorage.getItem('name');
+        }
+        var cards = ['../cards/Christmas/christmasStockingA.png',
+                    '../cards/Christmas/christmasStockingB.png',
+                    '../cards/Christmas/christmasTreeA.png',
+                    '../cards/Christmas/christmasTreeB.png',
+                    '../cards/Christmas/giftA.png',
+                    '../cards/Christmas/giftB.png',
+                    '../cards/Christmas/joyA.png',
+                    '../cards/Christmas/joyB.png',
+                    '../cards/Christmas/santaA.png',
+                    '../cards/Christmas/santaB.png',
+                    '../cards/Christmas/reindeerA.png',
+                    '../cards/Christmas/reindeerB.png',];
+        // 洗牌：每次開局把牌的順序打亂（Fisher-Yates）
+        for (var k = cards.length - 1; k > 0; k--) {
+            var j = Math.floor(Math.random() * (k + 1));
+            var temp = cards[k];
+            cards[k] = cards[j];
+            cards[j] = temp;
+        }
+        var flipCard = [];
+        var score = 0;
+        var time = 0;
+var sec=0, clear=0, sec2=0, timerid;
+var sec2 = 0;
+var timerid;
+
+function start(){
+    if (!timerid){ // 檢查計時器是否已經啟動
+        sec2 = 0;
+        var ref = document.getElementById('time_ChristmasGame');
+        timerid = window.setInterval(() => {
+            sec2++;
+            ref.innerHTML = sec2;
+            localStorage.setItem('time_ChristmasGame', sec2);
+        }, 1000);
+    }
+}
+
+function clearTimer() {
+    clearInterval(timerid);
+    timerid = null; // 重置計時器 ID
+}
+
+    function clearauto(){
+        clear=1;
+        clearInterval(timerid);
+    }
+        
+    function show(i){
+    var card = document.getElementsByTagName('img');
+    if(i < card.length){
+        // 已翻開或已配對的牌不能再點；翻錯的兩張還沒蓋回去前，也不能點第三張
+        if (flipCard.length >= 2 || card[i].src.indexOf("cardBack.png") == -1) return;
+        card[i].src = cards[i];
+        flipCard.push(i);
+
+        if(flipCard.length == 2){
+            // 確保不是同一張卡牌，並且檢查配對是否正確
+            if(flipCard[0] != flipCard[1] && cards[flipCard[0]].replace(/[AB]\.png$/, '') == cards[flipCard[1]].replace(/[AB]\.png$/, '')){
+                // 配對成功，增加分數
+                score += 10;
+                document.getElementById('message').innerHTML="配對成功！";
+                // 清空 flipCard 陣列
+                flipCard = [];
+            }
+            else{
+                document.getElementById('message').innerHTML="配對失敗！";
+                setTimeout(function(){
+                    // 翻回卡片
+                    card[flipCard[0]].src = "../cards/Christmas/cardBack.png";
+                    card[flipCard[1]].src = "../cards/Christmas/cardBack.png";
+                    // 清空 flipCard 陣列
+                    flipCard = [];
+                }, 1000);
+            }
+            document.getElementById('score').innerHTML = "分數：" + score;
+            localStorage.setItem('score_ChristmasGame', score);
+        }
+    }
+}
+
+</script>
+        
+<body onload="start();">
+        <h2>Christmas 聖誕節</h2>
+        <span id="time"></span>
+        <table aria-label="Memory Game" align="middle">
+            <h2>記憶遊戲</h2>時間：<span id='time_ChristmasGame'></span>秒
+            <tr>
+                <td><button onclick="show(0);"><img src="../cards/Christmas/cardBack.png" alt="Card Back" width="150" height="250"></button></td>
+                <td><button onclick="show(1);"><img src="../cards/Christmas/cardBack.png" alt="Card Back" width="150" height="250"></button></td> 
+                <td><button onclick="show(2);"><img src="../cards/Christmas/cardBack.png" alt="Card Back" width="150" height="250"></button></td> 
+                <td><button onclick="show(3);"><img src="../cards/Christmas/cardBack.png" alt="Card Back" width="150" height="250"></button></td>       
+                <td><button onclick="show(4);"><img src="../cards/Christmas/cardBack.png" alt="Card Back" width="150" height="250"></button></td>       
+                <td><button onclick="show(5);"><img src="../cards/Christmas/cardBack.png" alt="Card Back" width="150" height="250"></button></td>       
+
+            </tr>
+            <tr>
+                <td><button onclick="show(6);"><img src="../cards/Christmas/cardBack.png" alt="Card Back" width="150" height="250"></button></td> 
+                <td><button onclick="show(7);"><img src="../cards/Christmas/cardBack.png" alt="Card Back" width="150" height="250"></button></td> 
+                <td><button onclick="show(8);"><img src="../cards/Christmas/cardBack.png" alt="Card Back" width="150" height="250"></button></td> 
+                <td><button onclick="show(9);"><img src="../cards/Christmas/cardBack.png" alt="Card Back" width="150" height="250"></button></td> 
+                <td><button onclick="show(10);"><img src="../cards/Christmas/cardBack.png" alt="Card Back" width="150" height="250"></button></td>       
+                <td><button onclick="show(11);"><img src="../cards/Christmas/cardBack.png" alt="Card Back" width="150" height="250"></button></td>       
+
+            </tr>
+        </table>
+        <span id="message" style="font-weight:bold;font-size:'10'; font-family:Arial, Helvetica, sans-serif"><b></b></span><br>
+        <span id="score" style="font-weight:bold; color:blue;font-size:'10'; font-family:Arial, Helvetica, sans-serif"><b>分數：</b></span><br>
+        <br>
+        <button onclick="window.location='../practice/Christmas-practice.html';">上一頁 Next</button>
+        <button onclick="window.location='../test/Christmas-test.html';">下一頁 Next</button>
+    </body>
+    </html>

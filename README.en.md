@@ -18,7 +18,7 @@ The site covers four festivals: Easter, Halloween, Thanksgiving, and Christmas. 
 | --- | --- |
 | Story | An English story with narration audio, playable at 1x, 0.75x, or 0.5x speed. Students can look up new words or view a full Chinese translation |
 | Practice | <!-- TODO: Describe the practice format (only the Christmas page currently uses the word cards in cards/) --> |
-| Game | <!-- TODO: The game/ folder is not in the repo yet; describe this once it is added --> |
+| Game | A memory card game where students match each English word with its Chinese meaning |
 | Test | Multiple-choice, true/false, and picture questions, with the score shown right after submitting |
 | Extended Learning | Embedded YouTube videos that go further into each festival |
 
